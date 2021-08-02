@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<title>Regex Query Tool</title>
+	<style type="text/css">
+		a{
+			text-decoration: none;
+		}
+		a:hover{
+			text-decoration: none;
+		}
+		.copywrite{
+			/*margin: 10% 40%;*/
+			/*position: absolute;*/
+			/*bottom: 0;*/
+			/*left: 45%;*/
+			text-align: center;
+			position: absolute;
+			bottom: 0;
+			left: 36%;
+		}
+		form {
+			width: 40vw;
+			height: 40vh;
+		}
+		input{
+			margin: 5% auto;
+		}
+		label{
+			margin-right: 10px;
+			/*border: 1px solid black;*/
+			
+		}
+
+	</style>
+</head>
+<body>
+
+		<div class="container">
+			<div class="justify-content-center row ">
+				<div class="col-8">
+					<h1 class="mt-2">
+						Regex Tool Query
+					</h1>
+
+					<p style="color:#FF0000;text-align:right;"><a href="https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285" >Regex tutorial</a></p>
+					<hr class="mt-0 mb-4">
+					<form method="post">
+						{% csrf_token %}
+						<p style="text-align:left;">
+							<label for='id_string_input'>String</label>{{form.string_input}}
+
+
+
+							<br>	
+							<label for='id_regex_input'>Regex</label>{{form.regex_input}}
+						</p>
+						<select class="form-control" name="action">
+							<option value="full">Full Match</option>
+							<option value="first">First Match</option>
+							<option value="all">All Match</option>
+						</select>
+
+						<br>
+						<br>
+
+
+						<input type="submit" class="btn btn-success mr-1" value="Match" name="">
+
+						<br>
+						<br>
+						{% if after %}
+
+							{% if match %}
+								<input type="text" value="{{match}}" name="">
+							{% else %}
+								 <p style="color:#FF0000;text-align:center;">Regex is not matched</p>	
+							{% endif %}
+
+						{% endif %}
+					</form>
+					
+				</div>
+			</div>
+		</div>
+
+		<p class="copywrite">Created by <a href="https://t.me/SindarovAsadbek">Sindarov Asadbek</a></p>
+
+		
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
